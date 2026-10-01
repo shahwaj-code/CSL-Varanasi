@@ -1,7 +1,6 @@
 import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -43,7 +42,7 @@ function AuthPage() {
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
 
-  const dest = redirect && redirect.startsWith("/") ? redirect : "/admin";
+  const dest = redirect && redirect.startsWith("/") && !redirect.startsWith("//") ? redirect : "/admin";
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -83,14 +82,16 @@ function AuthPage() {
 
   async function onGoogle() {
     setBusy(true);
-    const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/auth" });
-    if (result.error) {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: window.location.origin + dest },
+      });
+      if (error) throw error;
+    } catch {
       toast.error("Google sign-in failed. Please try again.");
       setBusy(false);
-      return;
     }
-    if (result.redirected) return;
-    navigate({ to: dest });
   }
 
   return (

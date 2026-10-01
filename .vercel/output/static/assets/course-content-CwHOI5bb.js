@@ -1,0 +1,1 @@
+var e=`/assets/course-3d-C72KIGXB.jpg`,t=`/assets/course-vfx-fyeua4NJ.jpg`,n=`/assets/course-game-NEalie4Q.jpg`,r=`/assets/course-content-BhmndktB.jpg`;export{e as i,n,t as r,r as t};

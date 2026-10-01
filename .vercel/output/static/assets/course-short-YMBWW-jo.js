@@ -1,0 +1,1 @@
+var e=`/assets/course-short-DN7BDVTh.jpg`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/assets/course-motion-BKDbhe6P.jpg`;export{e as t};

@@ -55,7 +55,8 @@ function AdminEnquiries() {
               <tr className="text-left text-[11px] uppercase tracking-widest text-muted-foreground">
                 <th className="pb-3 pr-4">Name</th>
                 <th className="pb-3 pr-4">Phone</th>
-                <th className="pb-3 pr-4">City</th>
+                <th className="pb-3 pr-4">City / District</th>
+                <th className="pb-3 pr-4">State / UT</th>
                 <th className="pb-3 pr-4">Course</th>
                 <th className="pb-3 pr-4">Source</th>
                 <th className="pb-3 pr-4">Date</th>
@@ -71,6 +72,7 @@ function AdminEnquiries() {
                     <a href={`tel:${e.phone}`} className="hover:text-[var(--gold)]">{e.phone}</a>
                   </td>
                   <td className="py-3 pr-4 text-muted-foreground">{e.city ?? "—"}</td>
+                  <td className="py-3 pr-4 text-muted-foreground">{e.state ?? "—"}</td>
                   <td className="py-3 pr-4 text-[var(--gold)]">{e.course ?? "—"}</td>
                   <td className="py-3 pr-4 text-muted-foreground">{e.source ?? "—"}</td>
                   <td className="py-3 pr-4 text-xs text-muted-foreground">{new Date(e.created_at).toLocaleString()}</td>
