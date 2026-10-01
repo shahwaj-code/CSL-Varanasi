@@ -1,7 +1,7 @@
   # Centre Of Skill Learning
 
 
-Website built with TanStack Start, React, TypeScript, and Tailwind CSS.
+ Website built with TanStack Start, React, TypeScript, and Tailwind CSS.
 
 ## Development
 
